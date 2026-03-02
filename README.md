@@ -1,2 +1,128 @@
 # fungi-vision-classifier
-This project is a fungi image classification notebook. It involves downloading a fungi dataset, splitting it into training and testing sets, preprocessing the images, defining and training a Convolutional Neural Network (CNN) model using PyTorch, and finally evaluating the model's performance with metrics like accuracy and a confusion matrix.
+
+## Project Overview
+* This project implements a Convolutional Neural Network (CNN) using PyTorch to classify microscopic fungi images into multiple categories.
+* The model is trained on the Defungi dataset (downloaded via Kaggle) and performs supervised multi-class image classification.
+
+This project demonstrates:
+* Deep learning fundamentals
+* Custom CNN architecture design
+* Data preprocessing for image tasks
+* Training/validation workflow
+* Model evaluation using classification metrics
+* Visualization of learning curves
+
+## Dataset
+- Dataset used: Defungi (Microscopic Fungi Image Dataset).
+- Downloaded via kagglehub.
+
+### Classes Used
+
+The dataset contains 5 fungal classes:
+
+* H1
+* H2
+* H3
+* H5
+* H6
+
+Images are .jpg files organized by class folders.
+
+## Technologies & Libraries
+
+* Python
+* PyTorch
+* Torchvision
+* Scikit-learn
+* Matplotlib
+* NumPy
+* KaggleHub
+* tqdm
+
+## Project Pipeline 
+
+### Dataset Download
+The dataset is downloaded programmatically using:
+- kagglehub.dataset_download("joebeachcapital/defungi")
+Kaggle credentials are configured inside the notebook.
+
+### Dataset Splitting
+The dataset is manually split into:
+- 80% Training
+- 20% Testing
+
+Images are copied into:
+- /root/fungi_split/train
+- /root/fungi_split/test
+
+Each class is shuffled before splitting to avoid ordering bias.
+
+### Image Preprocessing 
+All images undergo the following transformations:
+* Resize to 128 × 128
+* Convert to tensor
+* Normalize to range [-1, 1]
+
+- transforms.Resize((128, 128))
+- transforms.ToTensor()
+- transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
+
+Batch size: 32
+
+
+## CNN Architecture
+
+A custom CNN is implemented using nn.Sequential.
+
+### Architecture:
+1. Conv2D (3 → 32) + BatchNorm + ReLU + MaxPool
+2. Conv2D (32 → 64) + BatchNorm + ReLU + MaxPool
+3. Conv2D (64 → 128) + BatchNorm + ReLU + MaxPool
+4. Adaptive Average Pooling
+5. Fully Connected Layer (128 → 128)
+6. Dropout (0.5)
+7. Output Layer (128 → num_classes)
+
+#### Key characteristics:
+* Uses Batch Normalization
+* Uses Dropout for regularization
+* Adaptive pooling ensures fixed feature size
+* Designed for small-to-medium scale image classification
+
+## Training Configuration
+* Loss Function: CrossEntropyLoss
+* Optimizer: Adam
+* Learning Rate: 0.001
+* Epochs: 15
+* Device Automatically selects GPU if available
+
+Training loop tracks:
+* Training loss
+* Validation loss
+* Training accuracy
+* Validation accuracy
+
+## Model Evaluation
+After training, the model is evaluated using:
+* Confusion Matrix
+* Classification Report
+  * Precision
+  * Recall
+  * F1-score
+  * Accuracy
+
+Example evaluation tools used:
+
+- confusion_matrix()
+- classification_report()
+
+## Training Visualization
+Two learning curves are plotted:
+* Loss Curve (Train vs Validation)
+* Accuracy Curve (Train vs Validation)
+
+These help assess:
+* Overfitting
+* Underfitting 
+* Convergence behavior
+
