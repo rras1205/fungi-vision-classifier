@@ -35,6 +35,14 @@ The dataset contains 5 fungal classes:
 
 Images are .jpg files organized by class folders.
 
+#### Sample Images from Each Class
+
+| H1 | H2 | H3 | H5 | H6 |
+|----|----|----|----|----|
+| ![H1](screenshots/H1_100a_2.jpg) | ![H2](screenshots/H2_102a_1.jpg) | ![H3](screenshots/H3_10a_1.jpg) | ![H5](screenshots/H5_101a_1.jpg) | ![H6](screenshots/H6_10a_1.jpg)   
+
+
+
 ## Technologies & Libraries
 
 * Python
@@ -98,6 +106,7 @@ A custom CNN is implemented using nn.Sequential.
 * Adaptive pooling ensures fixed feature size
 * Designed for small-to-medium scale image classification
 
+
 ## Training Configuration
 * Loss Function: CrossEntropyLoss
 * Optimizer: Adam
@@ -110,6 +119,14 @@ Training loop tracks:
 * Validation loss
 * Training accuracy
 * Validation accuracy
+
+### Training Progress (Epoch Logs)
+
+| Epoch Logs | 
+|------------|
+| ![Training Progress](screenshots/training_log.png) | 
+
+Increase in accuracy from 0.6-0.7 show model is learning from training data. 
 
 ## Model Evaluation
 After training, the model is evaluated using:
@@ -125,15 +142,38 @@ Example evaluation tools used:
 - confusion_matrix()
 - classification_report()
 
+| Confusion Matrix | 
+|------------------|
+| ![Confusion Matrix](screenshots/confusion_matrix.png) | 
+
+* Model performs well for classes H1, H5, and H6.
+* H2 has very low recall due to frequent misclassification as H1.
+* H3 balanced but not strong performance. 
+
+
+
+| Classification Report | 
+|-----------------------|
+| ![Classification Report](screenshots/classification_report.png) | 
+
+
 ## Training Visualization
 Two learning curves are plotted:
 * Loss Curve (Train vs Validation)
 * Accuracy Curve (Train vs Validation)
 
-These help assess:
-* Overfitting
-* Underfitting 
-* Convergence behavior
+| Loss Curve | Accuracy Curve |
+|------------| ---------------|
+| ![Loss Curve](screenshots/loss_curve.png) | ![Accuracy Curve](screenshots/accuracy_curve.png) |
+
+Loss Curve: 
+* Training loss decreases steadily - effective learning without issues like inappropriate learning rate.
+* Validation loss decreases in tandem with training loss - no overfitting, improving on unseen data.
+* Both curves plateu at non-zero value - indicates model has reached limits of learning capacity.
+
+Accuracy Curve:
+* Validation accuracy stabilizes at 73%, shows generalization ability but hits an early ceiling - suggests underfitting.
+* Lower training accuracy imples dataset is difficult to learn from, possibly due to overlapping classes. 
 
 ## How to Run This Project
 
