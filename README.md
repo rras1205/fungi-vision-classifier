@@ -13,8 +13,15 @@ This project demonstrates:
 * Visualization of learning curves
 
 ## Dataset
+Due to size constraints (158MB), the dataset is not included in this repository.
+
+You can download it from:
+
+https://www.kaggle.com/datasets/joebeachcapital/defungi
+
 - Dataset used: Defungi (Microscopic Fungi Image Dataset).
 - Downloaded via kagglehub.
+
 
 ### Classes Used
 
@@ -43,7 +50,9 @@ Images are .jpg files organized by class folders.
 
 ### Dataset Download
 The dataset is downloaded programmatically using:
+
 - kagglehub.dataset_download("joebeachcapital/defungi")
+
 Kaggle credentials are configured inside the notebook.
 
 ### Dataset Splitting
@@ -125,4 +134,48 @@ These help assess:
 * Overfitting
 * Underfitting 
 * Convergence behavior
+
+## How to Run This Project
+
+### Clone repository 
+- git clone https://github.com/rras1205/fungi-vision-classifier.git
+
+### Install Requirements 
+- pip install torch torchvision scikit-learn matplotlib kagglehub tqdm
+
+### Add Kaggle API Credentials
+- Place your kaggle.json file in:
+
+~/.kaggle/
+
+
+Then run the notebook
+
+## What this project demonstrates
+This project shows:
+- Ability to build a CNN from scratch
+- Understanding image preprocessing
+- Proper training-validation workflow
+- Model evaluation beyond just accuracy
+- Basic deep learning experimentation
+
+## Limitations
+This implementation:
+- Uses a simple custom CNN (not pretrained models like ResNet)
+- Does not use data augmentation
+- Does not perform hyperparameter tuning
+- Uses a simple train/test split instead of cross-validation
+
+## Potential Improvements
+- Add data augmentation (RandomRotation, RandomHorizontalFlip)
+- Implement transfer learning (e.g., ResNet18)
+- Add early stopping
+- Save and load trained models
+- Deploy as a Streamlit web app
+
+
+
+
+
+
 
