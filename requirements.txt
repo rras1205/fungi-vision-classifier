@@ -1,0 +1,7 @@
+kagglehub
+torch
+torchvision
+matplotlib
+scikit-learn
+numpy
+tqdm
