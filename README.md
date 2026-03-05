@@ -209,7 +209,7 @@ This implementation:
 ## Potential Improvements
 - Add data augmentation (RandomRotation, RandomHorizontalFlip)
 - Implement transfer learning (e.g., ResNet18)
-- Add early stopping
+- Continue with more Epochs and Add early stopping
 - Save and load trained models
 - Deploy as a Streamlit web app
 
