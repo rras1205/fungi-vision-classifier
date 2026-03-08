@@ -188,7 +188,7 @@ Follow these steps to set up and run the Fungi Vision Classifier project in your
 If you want to clone the entire project repository to your Colab instance, run the following command in a code cell:
 
 !git clone https://github.com/rras1205/fungi-vision-classifier.git
-# If you cloned, you might need to navigate into the directory:
+#### If you cloned, you might need to navigate into the directory:
 # %cd fungi-vision-classifier
 Note: The dataset itself will be downloaded directly via kagglehub later in the notebook, so cloning the repository is mainly for getting the project files/structure.
 
@@ -197,13 +197,17 @@ Note: The dataset itself will be downloaded directly via kagglehub later in the 
 Ensure all necessary Python libraries are installed. Most are pre-installed in Colab, but it's good practice to ensure they are available:
 
 !pip install torch torchvision scikit-learn matplotlib kagglehub tqdm
+
 Add Kaggle API Credentials (kaggle.json)
 
 To download the dataset from Kaggle, you need your Kaggle API key:
 
 Download kaggle.json: Go to your Kaggle account settings ([redacted link]) and click 'Create New API Token' to download kaggle.json.
+
 Upload to Colab: In your Colab notebook, use the file upload icon (folder icon on the left panel -> 'Upload to session storage') to upload your kaggle.json file directly to the root of your Colab file system (e.g., /content/).
+
 The notebook contains a cell that will then automatically move this file to the correct ~/.kaggle/ directory and set the appropriate permissions.
+
 Run the Notebook
 
 Once kaggle.json is uploaded and you've installed dependencies, simply run all cells in the notebook sequentially. The notebook will handle the dataset download, splitting, model training, and evaluation.
