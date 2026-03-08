@@ -189,7 +189,7 @@ If you want to clone the entire project repository to your Colab instance, run t
 
 !git clone https://github.com/rras1205/fungi-vision-classifier.git
 #### If you cloned, you might need to navigate into the directory:
-# %cd fungi-vision-classifier
+**%cd fungi-vision-classifier**
 Note: The dataset itself will be downloaded directly via kagglehub later in the notebook, so cloning the repository is mainly for getting the project files/structure.
 
 ### Install Requirements
