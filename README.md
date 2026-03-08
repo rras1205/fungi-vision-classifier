@@ -68,6 +68,10 @@ The dataset is manually split into:
 - 80% Training
 - 20% Testing
 
+| Train-test ratio | 
+|------------------|
+| ![train-test-ratio](screenshots/train_test_split.png) | 
+
 Images are copied into:
 - /root/fungi_split/train
 - /root/fungi_split/test
